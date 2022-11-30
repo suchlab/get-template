@@ -2,6 +2,7 @@
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 const axios = require('axios');
+const version = require('root-require')('package.json').version;
 
 const ALIAS_URL = 'https://raw.githubusercontent.com/get-template/aliases/main/aliases.txt';
 
@@ -12,6 +13,11 @@ async function getTemplate() {
 
 	const template = args[0];
 	const directory = (!args[1] || FLAGS.includes(args[1]) ? '.' : args[1]);
+
+	// Display version
+	if (['-v', '--version'].includes(template)) {
+		return console.log(version || 'Not available');
+	}
 
 	// Flags
 	const ci = !!args.find(flag => flag === '--ci');
