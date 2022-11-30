@@ -1,6 +1,6 @@
 {
   "name": "get-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Download any template for your project",
   "main": "bin/get-template.js",
   "scripts": {
