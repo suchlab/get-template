@@ -32,6 +32,18 @@ npx get-template package
 
 You can propose new alias in the [aliases repository](https://github.com/get-template/aliases)
 
+## Popular templates
+These are some popular templates you can download using get-template. Not only for JavaScript projects!
+
+- [github/gitignore](https://github.com/github/gitignore) `npx get-template github/gitignore`
+- [sveltejs/svelte](https://github.com/sveltejs/svelte) `npx get-template sveltejs/svelte`
+- [react-boilerplate/react-boilerplate](https://github.com/react-boilerplate/react-boilerplate) `npx get-template react-boilerplate/react-boilerplate`
+- [h5bp/html5-boilerplate](https://github.com/h5bp/html5-boilerplate) `npx get-template h5bp/html5-boilerplate`
+- [ColorlibHQ/AdminLTE](https://github.com/ColorlibHQ/AdminLTE) `npx get-template ColorlibHQ/AdminLTE`
+- [akveo/ngx-admin](https://github.com/akveo/ngx-admin) `npx get-template akveo/ngx-admin`
+- [kriasoft/react-starter-kit](https://github.com/kriasoft/react-starter-kit) `npx get-template kriasoft/react-starter-kit`
+- [dhg/Skeleton](https://github.com/dhg/Skeleton) `npx get-template dhg/Skeleton`
+
 ## People
 The original author of get-template is [itaibo](https://github.com/itaibo)
 
