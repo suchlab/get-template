@@ -5,13 +5,12 @@ Download any template for your project
 
 ## How to use
 ````sh
-npx get-template <template> [<download-directory>] [--execute-commands]
+npx get-template <template> [<download-directory>] [--execute-commands] [--keep-git]
 ````
 
 This will download a template in the directory you want. By default, the download directory will be the current one (i.e. `.`).
 
 Template names are GitHub's username and repository name. So, if you want to download the template from https://github.com/github/codespaces-react, your command would be:
-
 ````sh
 npx get-template github/codespaces-react
 ````
@@ -22,6 +21,12 @@ npx get-template github/codespaces-react my-folder-name
 ````
 
 The directory **must** be empty. If not, it won't download the template
+
+The get-template tool removes the .git folder by default. To keep the original template's git, add the flag `--keep-git`:
+
+````sh
+npx get-template package --keep-git
+````
 
 ## Aliases
 To make templates easier to download, you can use aliases. These aliases simplify how people download templates.
