@@ -1,7 +1,7 @@
 # get-template
 Download any template for your project
 
-### How to use
+## How to use
 ````sh
 npx get-template <template> [<download-directory>]
 ````
@@ -21,7 +21,7 @@ npx get-template github/codespaces-react my-folder-name
 
 The directory **must** be empty. If not, it won't download the template
 
-### Aliases
+## Aliases
 To make templates easier to download, you can use aliases. These aliases simplify how people download templates.
 
 For example, the alias `package` downloads a template to [create TypeScript packages](https://github.com/itaibo/package-template):
@@ -31,3 +31,8 @@ npx get-template package
 ````
 
 You can propose new alias in the [aliases repository](https://github.com/get-template/aliases)
+
+## People
+The original author of get-template is [itaibo](https://github.com/itaibo)
+
+You can contribute too!
