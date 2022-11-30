@@ -3,7 +3,7 @@ const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 const axios = require('axios');
 
-const ALIAS_URL = 'https://raw.githubusercontent.com/get-template/alias/main/aliases.txt';
+const ALIAS_URL = 'https://raw.githubusercontent.com/get-template/aliases/main/aliases.txt';
 
 async function getTemplate() {
 	const args = process.argv.slice(2);
