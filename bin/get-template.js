@@ -12,6 +12,7 @@ async function getTemplate() {
 	const directory = args[1] || '.';
 
 	let gitDestination;
+	let postDownloadCommand;
 	
 	// Util functions
 	function error(message) {
@@ -56,11 +57,16 @@ async function getTemplate() {
 
 			if (!line) continue;
 
-			const [alias, destination] = line.split('=');
+			const [alias, destination, command] = line.split('=');
 
 			if (alias === template) {
 				gitDestination = destination;
 				console.log('Alias found!');
+
+				if (command) {
+					postDownloadCommand = command;
+				}
+
 				break;
 			}
 		}
@@ -90,6 +96,16 @@ async function getTemplate() {
 		await exec(`cd ${directory}; git init`);
 	} catch (e) {
 		return error('Could not initialize git');
+	}
+
+	// Execute command
+	if (postDownloadCommand) {
+		try {
+			console.log(`Executing post-download command (${postDownloadCommand})...`);
+			await exec(`cd ${directory}; ${postDownloadCommand}`);
+		} catch (e) {
+			return error('Could not execute command');
+		}
 	}
 
 	// Finish
