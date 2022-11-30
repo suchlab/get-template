@@ -15,8 +15,13 @@ async function getTemplate() {
 	let postDownloadCommand;
 	
 	// Util functions
-	function error(message) {
+	function error(message, details) {
 		console.error(`Error: ${message}`);
+
+		if (details) {
+			console.error(details);
+		}
+
 		return process.exit(1);
 	}
 	
@@ -33,7 +38,7 @@ async function getTemplate() {
 		}
 	} catch (e) {
 		if (e?.stderr && !e.stderr.includes('No such file or directory')) {
-			return error('Could not list directory');
+			return error('Could not list directory', e);
 		}
 	}
 
@@ -47,7 +52,7 @@ async function getTemplate() {
 			const request = await axios.get(ALIAS_URL);
 			list = request.data;
 		} catch (e) {
-			return error('Could not get aliases list');
+			return error('Could not get aliases list', e);
 		}
 
 		const lines = list.split("\n");
@@ -81,7 +86,7 @@ async function getTemplate() {
 		console.log(`Downloading template from ${gitDestination}...`);
 		await exec(`git clone ${gitDestination} ${directory}`);
 	} catch (e) {
-		return error('Could not clone repository');
+		return error('Could not clone repository', e);
 	}
 	
 	// Remove .git
@@ -89,7 +94,7 @@ async function getTemplate() {
 		console.log('Removing .git...');
 		await exec(`cd ${directory}; rm -rf .git`);
 	} catch (e) {
-		return error('Could not remove .git');
+		return error('Could not remove .git', e);
 	}
 
 	// Initialize .git
@@ -97,7 +102,7 @@ async function getTemplate() {
 		console.log('Initializing new git...');
 		await exec(`cd ${directory}; git init`);
 	} catch (e) {
-		return error('Could not initialize git');
+		return error('Could not initialize git', e);
 	}
 
 	// Execute command
@@ -106,7 +111,7 @@ async function getTemplate() {
 			console.log(`Executing post-download command (${postDownloadCommand})...`);
 			await exec(`cd ${directory}; ${postDownloadCommand}`);
 		} catch (e) {
-			return error('Could not execute command');
+			return error('Could not execute command', e);
 		}
 	}
 
