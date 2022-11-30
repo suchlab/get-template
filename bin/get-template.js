@@ -11,6 +11,8 @@ async function getTemplate() {
 	const template = args[0];
 	const directory = args[1] || '.';
 
+	const ci = !!args.find(flag => flag === '--ci');
+
 	let gitDestination;
 	let postDownloadCommand;
 	
@@ -79,6 +81,11 @@ async function getTemplate() {
 
 	if (!gitDestination) {
 		return error(`Could not find "${template}" alias`);
+	}
+
+	// If CI, stop script
+	if (ci) {
+		return console.log('CI finished');
 	}
 
 	// Download template
