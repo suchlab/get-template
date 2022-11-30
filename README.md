@@ -1,4 +1,6 @@
 # get-template
+![CI](https://github.com/get-template/get-template/actions/workflows/ci.yml/badge.svg)
+
 Download any template for your project
 
 ## How to use
