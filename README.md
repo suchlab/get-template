@@ -38,7 +38,7 @@ Aliases can include post-download commands to be executed (e.g. `npm install`). 
 npx get-template package --execute-commands
 ````
 
-You can propose new alias in the [aliases repository](https://github.com/get-template/aliases)
+You can propose new aliases in the [aliases repository](https://github.com/get-template/aliases)
 
 ## Popular templates
 These are some popular templates you can download using get-template. Not only for JavaScript projects!
