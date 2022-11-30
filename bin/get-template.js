@@ -50,12 +50,10 @@ async function getTemplate() {
 			return error('Could not get aliases list');
 		}
 
-		const lines = list.split("\r\n");
+		const lines = list.split("\n");
 
 		for (let line of lines) {
 			line = line.trim();
-
-			if (!line) continue;
 
 			const [alias, destination, command] = line.split('=');
 
@@ -72,6 +70,10 @@ async function getTemplate() {
 		}
 	} else {
 		gitDestination = `git@github.com:${template}.git`
+	}
+
+	if (!gitDestination) {
+		return error(`Could not find "${template}" alias`);
 	}
 
 	// Download template
