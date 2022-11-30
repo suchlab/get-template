@@ -9,9 +9,10 @@ async function getTemplate() {
 	const args = process.argv.slice(2);
 
 	const template = args[0];
-	const directory = args[1] || '.';
+	const directory = (!args[1] || ['--ci', '--execute-commands', '-ec'].includes(args[1]) ? '.' : args[1]);
 
 	const ci = !!args.find(flag => flag === '--ci');
+	const executeCommands = !!args.find(flag => flag === '--execute-commands' || flag === '-ec');
 
 	let gitDestination;
 	let postDownloadCommand;
@@ -113,7 +114,7 @@ async function getTemplate() {
 	}
 
 	// Execute command
-	if (postDownloadCommand) {
+	if (executeCommands && postDownloadCommand) {
 		try {
 			console.log(`Executing post-download command (${postDownloadCommand})...`);
 			await exec(`cd ${directory}; ${postDownloadCommand}`);

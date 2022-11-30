@@ -5,7 +5,7 @@ Download any template for your project
 
 ## How to use
 ````sh
-npx get-template <template> [<download-directory>]
+npx get-template <template> [<download-directory>] [--execute-commands]
 ````
 
 This will download a template in the directory you want. By default, the download directory will be the current one (i.e. `.`).
@@ -32,12 +32,18 @@ For example, the alias `package` downloads a template to [create TypeScript pack
 npx get-template package
 ````
 
+Aliases can include post-download commands to be executed (e.g. `npm install`). If you want to execute these commands, add the flag `--execute-commands`:
+
+````sh
+npx get-template package --execute-commands
+````
+
 You can propose new alias in the [aliases repository](https://github.com/get-template/aliases)
 
 ## Popular templates
 These are some popular templates you can download using get-template. Not only for JavaScript projects!
 
-- [react-boilerplate/react-boilerplate](https://github.com/react-boilerplate/react-boilerplate) `npx get-template react-boilerplate/react-boilerplate`
+- [coreui/coreui-free-react-admin-template](https://github.com/coreui/coreui-free-react-admin-template) `npx get-template coreui-free-react-admin`
 - [github/codespaces-react](https://github.com/github/codespaces-react) `npx get-template github/codespaces-react`
 - [serverless/examples](https://github.com/serverless/examples) `npx get-template serverless/examples`
 - [prisma/prisma-examples](https://github.com/prisma/prisma-examples) `npx get-template prisma/prisma-examples`
