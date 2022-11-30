@@ -66,6 +66,8 @@ async function getTemplate() {
 
 		for (let line of lines) {
 			line = line.trim();
+			
+			if (!line) continue;
 
 			const [alias, destination, command] = line.split('=');
 
