@@ -48,6 +48,7 @@ You can propose new aliases in the [aliases repository](https://github.com/get-t
 ## Popular templates
 These are some popular templates you can download using get-template. Not only for JavaScript projects!
 
+- [get-template/react-app-template](https://github.com/get-template/react-app-template) `npx get-template react-app`
 - [coreui/coreui-free-react-admin-template](https://github.com/coreui/coreui-free-react-admin-template) `npx get-template coreui-free-react-admin`
 - [github/codespaces-react](https://github.com/github/codespaces-react) `npx get-template github/codespaces-react`
 - [serverless/examples](https://github.com/serverless/examples) `npx get-template serverless/examples`
@@ -58,6 +59,20 @@ These are some popular templates you can download using get-template. Not only f
 - [async-labs/saas](https://github.com/async-labs/saas) `npx get-template async-labs/saas`
 - [kriasoft/react-starter-kit](https://github.com/kriasoft/react-starter-kit) `npx get-template kriasoft/react-starter-kit`
 - [dhg/Skeleton](https://github.com/dhg/Skeleton) `npx get-template dhg/Skeleton`
+
+## Pro tip
+Alternatively, you can use these npm/npx aliases:
+
+```sh
+# Original command
+npx get-template package .
+
+# gete (flags not allowed yet)
+npx gete package .
+
+# gette (flags not allowed yet)
+npx gette package .
+```
 
 ## People
 The original author of get-template is [itaibo](https://github.com/itaibo)
