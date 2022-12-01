@@ -4,9 +4,9 @@ const exec = util.promisify(require('child_process').exec);
 const axios = require('axios');
 const version = require('root-require')('package.json').version;
 
-const ALIAS_URL = 'https://raw.githubusercontent.com/get-template/aliases/main/aliases.txt';
+const ALIAS_URL = 'https://raw.githubusercontent.com/get-template/aliases/main/aliases.json';
 
-const FLAGS = ['--ci', '--execute-commands', '-ec']
+const FLAGS = ['--ci', '-ci', '--execute-commands', '-ec', '--keep-git', '-kg']
 
 async function getTemplate() {
 	const args = process.argv.slice(2);
@@ -20,9 +20,9 @@ async function getTemplate() {
 	}
 
 	// Flags
-	const ci = !!args.find(flag => flag === '--ci');
+	const ci = !!args.find(flag => flag === '--ci' || flag === '-ci');
 	const executeCommands = !!args.find(flag => flag === '--execute-commands' || flag === '-ec');
-	const removeGit = !args.find(flag => flag === '--keep-git');
+	const removeGit = !args.find(flag => flag === '--keep-git' || flag === '-kg');
 
 	let gitDestination;
 	let postDownloadCommand;
@@ -68,26 +68,16 @@ async function getTemplate() {
 			return error('Could not get aliases list', e);
 		}
 
-		const lines = list.split("\n");
-
-		for (let line of lines) {
-			line = line.trim();
-			
-			if (!line) continue;
-
-			const [alias, destination, command] = line.split('=');
-
-			if (alias === template) {
-				gitDestination = destination;
-				console.log('Alias found!');
-
-				if (command) {
-					postDownloadCommand = command;
-				}
-
-				break;
-			}
+		const alias = list.find(l => l.alias === template);
+		
+		if (!alias) {
+			return error(`Could not find "${template}"`);
 		}
+
+		console.log('Alias found!');
+
+		gitDestination = alias.origin;
+		postDownloadCommand = alias.command;
 	} else {
 		gitDestination = `git@github.com:${template}.git`
 	}
