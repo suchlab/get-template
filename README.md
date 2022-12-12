@@ -1,5 +1,5 @@
 # get-template
-![CI](https://github.com/get-template/get-template/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/suchlab/get-template/actions/workflows/ci.yml/badge.svg)
 
 Download any template for your project
 
@@ -31,7 +31,7 @@ npx get-template package --keep-git
 ## Aliases
 To make templates easier to download, you can use aliases. These aliases simplify how people download templates.
 
-For example, the alias `package` downloads a template to [create TypeScript packages](https://github.com/itaibo/package-template):
+For example, the alias `package` downloads a template to [create TypeScript packages](https://github.com/suchlab/package-template):
 
 ````sh
 npx get-template package
@@ -43,12 +43,12 @@ Aliases can include post-download commands to be executed (e.g. `npm install`). 
 npx get-template package --execute-commands
 ````
 
-You can propose new aliases in the [aliases repository](https://github.com/get-template/aliases)
+You can propose new aliases in the [aliases repository](https://github.com/suchlab/get-template-aliases)
 
 ## Popular templates
 These are some popular templates you can download using get-template. Not only for JavaScript projects!
 
-- [get-template/react-app-template](https://github.com/get-template/react-app-template) `npx get-template react-app`
+- [get-template/react-app-template](https://github.com/suchlab/react-app-template) `npx get-template react-app`
 - [coreui/coreui-free-react-admin-template](https://github.com/coreui/coreui-free-react-admin-template) `npx get-template coreui-free-react-admin`
 - [github/codespaces-react](https://github.com/github/codespaces-react) `npx get-template github/codespaces-react`
 - [serverless/examples](https://github.com/serverless/examples) `npx get-template serverless/examples`

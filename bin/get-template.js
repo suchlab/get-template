@@ -4,7 +4,7 @@ const exec = util.promisify(require('child_process').exec);
 const axios = require('axios');
 const version = require('root-require')('package.json').version;
 
-const ALIAS_URL = 'https://raw.githubusercontent.com/get-template/aliases/main/aliases.json';
+const ALIAS_URL = 'https://raw.githubusercontent.com/suchlab/get-template-aliases/main/aliases.json';
 
 const FLAGS = ['--ci', '-ci', '--execute-commands', '-ec', '--keep-git', '-kg']
 
